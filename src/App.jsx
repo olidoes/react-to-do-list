@@ -5,10 +5,14 @@ import Entry from "./components/Entry";
 
 function App() {
     const [currentValue, setCurrentValue] = useState("");
+    const [toDos, setToDos] = useState([]);
 
     function handleAddClick() {
-        console.log(currentValue);
+        let newToDo = { value: currentValue, id: Date.now() };
+
+        setToDos([...toDos, newToDo]);
     }
+
     return (
         <div className="flexbox-centering-container">
             <div className="to-do-list-container">
@@ -18,7 +22,7 @@ function App() {
                     onSubmit={handleAddClick}
                     setCurrentValue={setCurrentValue}
                 />
-                <ToDos />
+                <ToDos toDos={toDos} />
             </div>
         </div>
     );
