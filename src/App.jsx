@@ -8,9 +8,20 @@ function App() {
     const [toDos, setToDos] = useState([]);
 
     function handleAddClick() {
+        if (currentValue == "") {
+            return;
+        }
+
         let newToDo = { value: currentValue, id: Date.now() };
 
         setToDos([...toDos, newToDo]);
+        setCurrentValue("");
+    }
+
+    function handleToDoClick(elementId) {
+        let newToDos = toDos.filter((e) => String(e.id) != String(elementId));
+
+        setToDos(newToDos);
     }
 
     return (
@@ -22,7 +33,7 @@ function App() {
                     onSubmit={handleAddClick}
                     setCurrentValue={setCurrentValue}
                 />
-                <ToDos toDos={toDos} />
+                <ToDos toDos={toDos} handleToDoClick={handleToDoClick} />
             </div>
         </div>
     );
