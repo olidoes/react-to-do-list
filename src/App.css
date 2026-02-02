@@ -1,0 +1,17 @@
+body {
+    margin: 0;
+}
+
+.flexbox-centering-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.to-do-list-container {
+    background-color: azure;
+    height: 150px;
+    width: 300px;
+    text-align: center;
+}
